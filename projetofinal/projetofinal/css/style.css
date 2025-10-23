@@ -1,0 +1,64 @@
+/* * Seu CSS customizado (style.css)
+ * * Este arquivo é carregado DEPOIS do Bootstrap,
+ * então as regras aqui têm prioridade e podem sobrescrever o Bootstrap.
+ */
+
+/* --- 1. Layout (Correção do Rodapé) --- */
+
+/* * Isso garante que o <body> ocupe 100% da altura da tela
+ * e se comporte como um container flexível em coluna.
+*/
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* * Esta regra é a mais importante:
+ * Faz com que o <main> (conteúdo principal) "cresça" e
+ * ocupe todo o espaço disponível, empurrando o <footer> para baixo.
+*/
+main {
+    flex: 1;
+}
+
+/* --- 2. Customização de Cores (Sobrescrevendo o Bootstrap) --- */
+
+/* * Usamos '!important' para garantir que nossa cor
+ * sobrescreva a classe 'bg-dark' do Bootstrap.
+*/
+
+/* Cor customizada para a Navbar */
+.navbar.bg-dark {
+    background-color: #343a40 !important; /* Um cinza-azulado escuro */
+    /* Ex: Tente #004d40 para um verde escuro */
+}
+
+/* Cor customizada para o Rodapé */
+footer.bg-dark {
+    background-color: #343a40 !important; /* Mesma cor da navbar para consistência */
+}
+
+
+/* --- 3. Efeitos de Interatividade --- */
+
+/* * Adiciona um efeito de "hover" sutil nos cards de produto
+ * (nas páginas 'index.html' e 'produtos.html')
+*/
+.card:hover {
+    /* Levanta o card levemente */
+    transform: translateY(-5px);
+    
+    /* Adiciona uma sombra mais pronunciada */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    /* Define a velocidade da animação */
+    transition: all 0.3s ease-in-out;
+}
+
+/* * Garante que a imagem dentro do card de produto 
+ * não ultrapasse o card durante a animação.
+*/
+.card-img-top {
+    object-fit: cover;
+}
